@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\taxonomy\ContextProvider;
+#namespace Drupal\taxonomy\ContextProvider;
 
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
