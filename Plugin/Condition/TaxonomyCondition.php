@@ -65,8 +65,8 @@ class TaxonomyCondition extends ConditionPluginBase implements ContainerFactoryP
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
     $options = [];
-    $node_types = $this->entityStorage->loadMultiple();
-    foreach ($node_types as $type) {
+    $terms = $this->entityStorage->loadMultiple();
+    foreach ($terms as $type) {
       $options[$type->id()] = $type->label();
     }
     $form['bundles'] = [
