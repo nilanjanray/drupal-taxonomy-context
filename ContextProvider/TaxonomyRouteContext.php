@@ -42,7 +42,6 @@ class TaxonomyRouteContext implements ContextProviderInterface {
     $result = [];
     $context_definition = new ContextDefinition('entity:taxonomy_term', NULL, FALSE);
     $value = NULL;
-    //dpm($this->routeMatch->getRouteObject());    
     if (($route_object = $this->routeMatch->getRouteObject()) && ($route_contexts = $route_object->getOption('parameters')) && isset($route_contexts['taxonomy_term'])) {
       if ($term = $this->routeMatch->getParameter('taxonomy_term')) {
         $value = $term;
@@ -55,7 +54,6 @@ class TaxonomyRouteContext implements ContextProviderInterface {
     $context = new Context($context_definition, $value);
     $context->addCacheableDependency($cacheability);
     $result['taxonomy_term'] = $context;
-    dpm($context);  
     return $result;
     } 
   }
@@ -66,7 +64,6 @@ class TaxonomyRouteContext implements ContextProviderInterface {
   public function getAvailableContexts() {
     $context = new Context(new ContextDefinition('entity:taxonomy_term', $this->t('Taxonomy from URL')));
     return ['taxonomy_term' => $context];
-    //return $this->getRuntimeContexts([]);
   }
 
 }

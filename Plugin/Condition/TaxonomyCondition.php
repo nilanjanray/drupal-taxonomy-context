@@ -98,6 +98,8 @@ class TaxonomyCondition extends ConditionPluginBase implements ContainerFactoryP
    * {@inheritdoc}
    */
   public function evaluate() {
-    return TRUE;
+    if (!$this->isNegated() && $this->getContextValue('taxonomy_term')->getEntityTypeId() == 'taxonomy_term') {
+      return TRUE;
+    }
   }
 }
